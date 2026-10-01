@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إلى خوخة ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Amiri:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #fff;
+    background:
+        radial-gradient(circle at 50% 20%, #3a174f 0%, #170d29 45%, #080611 100%);
+    font-family: 'Cairo', sans-serif;
+}
+
+canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 18px;
+}
+
+.card {
+    width: min(700px, 100%);
+    text-align: center;
+    padding: 42px 25px 36px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 30px;
+    background: rgba(255,255,255,.07);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 25px 80px rgba(0,0,0,.4);
+}
+
+.small {
+    letter-spacing: 4px;
+    font-size: 12px;
+    opacity: .65;
+    margin-bottom: 14px;
+}
+
+h1 {
+    font-family: 'Amiri', serif;
+    font-size: clamp(50px, 14vw, 92px);
+    line-height: 1;
+    margin-bottom: 8px;
+    text-shadow: 0 0 30px rgba(255,170,220,.45);
+}
+
+.subtitle {
+    font-size: 17px;
+    opacity: .85;
+    margin-bottom: 28px;
+}
+
+.cake {
+    font-size: 75px;
+    animation: float 3s ease-in-out infinite;
+    margin: 8px 0 20px;
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+button {
+    border: 0;
+    border-radius: 999px;
+    padding: 14px 28px;
+    cursor: pointer;
+    color: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    background: linear-gradient(135deg,#d94f9b,#8d5de8);
+    box-shadow: 0 10px 30px rgba(185,74,160,.3);
+    transition: .25s;
+}
+
+button:hover {
+    transform: translateY(-2px) scale(1.02);
+}
+
+#message {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 1s ease;
+}
+
+#message.open {
+    max-height: 700px;
+    opacity: 1;
+    margin-top: 30px;
+}
+
+.letter {
+    text-align: right;
+    line-height: 2.05;
+    font-family: 'Amiri', serif;
+    font-size: 21px;
+    padding: 24px;
+    border-radius: 20px;
+    background: rgba(0,0,0,.18);
+    border: 1px solid rgba(255,255,255,.1);
+}
+
+.letter p {
+    margin-bottom: 12px;
+}
+
+.highlight {
+    color: #ff9ed4;
+}
+
+.signature {
+    text-align: left;
+    font-size: 19px;
+    margin-top: 18px;
+}
+
+.hint {
+    font-size: 12px;
+    opacity: .45;
+    margin-top: 22px;
+}
+
+#counter {
+    font-size: 13px;
+    opacity: .55;
+    margin-top: 12px;
+}
+
+.heart {
+    position: fixed;
+    z-index: 5;
+    pointer-events: none;
+    font-size: 22px;
+    animation: rise 2.5s ease-out forwards;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(.7);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-180px)
+                   rotate(25deg)
+                   scale(1.5);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="stars"></canvas>
+
+<div class="container">
+
+    <main class="card">
+
+        <div class="small">
+            01 • 10 • 2026
+        </div>
+
+        <h1>
+            خوخة
+        </h1>
+
+        <div class="subtitle">
+            في يوم ميلادك… عندي كلام ما لقيت ليهو مكان إلا هنا.
+        </div>
+
+        <div class="cake">
+            🎂
+        </div>
+
+        <button id="openBtn">
+            اضغطي هنا… 🎁
+        </button>
+
+        <section id="message">
+
+            <div class="letter">
+
+                <p>
+                    كل سنة وإنتِ بخير يا خوخة ❤️
+                </p>
+
+                <p>
+                    يمكن البعد يغيّر حاجات كثيرة،
+                    ويمكن الأيام تاخدنا بعيد عن بعض أكتر
+                    مما كنا متخيلين… لكن في حاجات معينة
+                    ما بتتغيّر.
+                </p>
+
+                <p>
+                    <span class="highlight">
+                        مكانتك عندي واحدة.
+                    </span>
+                    والذكريات الحلوة ما محتاجة مسافة قريبة
+                    عشان تفضل حاضرة.
+                </p>
+
+                <p>
+                    في عيد ميلادك، أتمنى تكون سنتك الجديدة
+                    أهدى من كل السنين الفاتت، وأجمل من كل
+                    الأمنيات اللي لسه ما اتحققت.
+                </p>
+
+                <p>
+                    أتمنى تضحكي كتير، وتلاقي نفسك في الأماكن
+                    البتستاهليها، ويجيك الخير بدون ما تضطري
+                    تطلبيه.
+                </p>
+
+                <p>
+                    وأتمنى، مهما اتغيّرت الأيام، تفضلي فاكرة
+                    إن في شخص لسه بيبتسم لما يتذكرك…
+                    وبيفرح من قلبه لما يشوفك بخير.
+                </p>
+
+                <p>
+                    <span class="highlight">
+                        عيد ميلاد سعيد يا خوخة… ❤️
+                    </span>
+                </p>
+
+                <p>
+                    وربنا يخلي سنتك دي بداية لحاجات أجمل
+                    مما تتخيلي.
+                </p>
+
+                <div class="signature">
+                    — من شخص لسه عنده كلام كتير ما قالو.
+                </div>
+
+            </div>
+
+            <div id="counter">
+                وهذه ليست النهاية… ✨
+            </div>
+
+        </section>
+
+        <div class="hint">
+            اضغطي في أي مكان في الصفحة ✨
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+
+/* =========================
+   النجوم المتحركة
+========================= */
+
+const canvas = document.getElementById('stars');
+const ctx = canvas.getContext('2d');
+
+let stars = [];
+
+function resize() {
+
+    canvas.width = innerWidth * devicePixelRatio;
+    canvas.height = innerHeight * devicePixelRatio;
+
+    ctx.setTransform(
+        devicePixelRatio,
+        0,
+        0,
+        devicePixelRatio,
+        0,
+        0
+    );
+
+    stars = Array.from(
+        {
+            length: Math.min(
+                150,
+                Math.floor(innerWidth / 6)
+            )
+        },
+        () => ({
+            x: Math.random() * innerWidth,
+            y: Math.random() * innerHeight,
+            r: Math.random() * 1.5 + .2,
+            s: Math.random() * .25 + .05,
+            a: Math.random()
+        })
+    );
+}
+
+
+function draw() {
+
+    ctx.clearRect(
+        0,
+        0,
+        innerWidth,
+        innerHeight
+    );
+
+    for (const s of stars) {
+
+        s.a += (Math.random() - .5) * .035;
+
+        s.a = Math.max(
+            .15,
+            Math.min(1, s.a)
+        );
+
+        s.y -= s.s;
+
+        if (s.y < 0) {
+            s.y = innerHeight;
+        }
+
+        ctx.globalAlpha = s.a;
+
+        ctx.beginPath();
+
+        ctx.arc(
+            s.x,
+            s.y,
+            s.r,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle = '#fff';
+
+        ctx.fill();
+    }
+
+    requestAnimationFrame(draw);
+}
+
+
+addEventListener('resize', resize);
+
+resize();
+draw();
+
+
+
+/* =========================
+   فتح الرسالة
+========================= */
+
+const btn = document.getElementById('openBtn');
+const msg = document.getElementById('message');
+
+btn.addEventListener('click', () => {
+
+    msg.classList.add('open');
+
+    btn.textContent =
+        'كل سنة وإنتِ بخير يا خوخة ❤️';
+
+    burst(
+        innerWidth / 2,
+        innerHeight / 2
+    );
+
+});
+
+
+
+/* =========================
+   القلوب
+========================= */
+
+function heart(x, y) {
+
+    const h = document.createElement('div');
+
+    h.className = 'heart';
+
+    h.textContent =
+        ['❤️','💗','💖','💕','✨']
+        [Math.floor(Math.random() * 5)];
+
+    h.style.left =
+        (x - 10) + 'px';
+
+    h.style.top =
+        (y - 10) + 'px';
+
+    h.style.fontSize =
+        (18 + Math.random() * 18) + 'px';
+
+    document.body.appendChild(h);
+
+    setTimeout(() => {
+        h.remove();
+    }, 2500);
+}
+
+
+
+/* =========================
+   انفجار القلوب
+========================= */
+
+function burst(x, y) {
+
+    for (let i = 0; i < 18; i++) {
+
+        setTimeout(() => {
+
+            heart(
+                x + (Math.random() - .5) * 180,
+                y + (Math.random() - .5) * 80
+            );
+
+        }, i * 45);
+    }
+}
+
+
+
+/* =========================
+   قلوب عند الضغط
+========================= */
+
+document.addEventListener('click', e => {
+
+    if (e.target.tagName !== 'BUTTON') {
+
+        heart(
+            e.clientX,
+            e.clientY
+        );
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
